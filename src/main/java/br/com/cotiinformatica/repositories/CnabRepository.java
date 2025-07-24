@@ -17,5 +17,5 @@ public interface CnabRepository extends JpaRepository<Cnab, UUID> {
 			SELECT c FROM Cnab c 
 			WHERE c.propriedade = :propriedade
 			""")
-	List<Cnab> findByPropriedadeContainingIgnoreCase(@Param("propriedade") String propriedade);
+	List<Cnab> findByPropriedade(@Param("propriedade") String propriedade);
 }

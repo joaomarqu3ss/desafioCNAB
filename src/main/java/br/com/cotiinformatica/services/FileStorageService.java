@@ -55,7 +55,7 @@ public class FileStorageService {
 	}
 	
 	public List<CnabResponse> list(CnabRequest request) { // listar por nome das lojas
-			List<Cnab> moves = repository.findByPropriedadeContainingIgnoreCase(request.propriedade());
+			List<Cnab> moves = repository.findByPropriedade(request.propriedade());
 			return moves.stream()
 					.map(this::copyToResponse)
 					.toList();
