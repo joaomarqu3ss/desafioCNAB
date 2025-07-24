@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: cnab-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: cnab_user
+      POSTGRES_PASSWORD: cnab_pass
+      POSTGRES_DB: cnab_db
+    volumes:
+      - cnab_postgres_data:/var/lib/postgresql/data
+    networks:
+      - cnab-network
+
+volumes:
+  cnab_postgres_data:
+
+networks:
+  cnab-network:
+    driver: bridge
